@@ -1,9 +1,11 @@
-package emanage.com.eshopy;
+package emanage.com.eshopy.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import emanage.com.eshopy.R;
 
 public class Display extends AppCompatActivity implements View.OnClickListener {
 	Button Login, Register, Guest_user;

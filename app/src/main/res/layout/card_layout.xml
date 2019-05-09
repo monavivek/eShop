@@ -2,53 +2,57 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
-    android:layout_margin="5dp"
-    card_view:cardBackgroundColor="@color/colorPrimary"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp"
-    android:foreground="?selectableItemBackground"
-    android:clickable="true" >
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardMaxElevation="15dp"
+    card_view:cardElevation="10dp"
+    card_view:contentPadding="5dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardPreventCornerOverlap="false" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp" >
+        android:padding="10dp">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp"
-            />
+            android:layout_marginRight="16dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/item_title"
-            android:layout_toRightOf="@id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:textSize="30sp"
-            />
+            android:paddingTop="100dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_below="@id/item_image"
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/item_detail"
-            android:layout_toRightOf="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
             android:layout_below="@+id/item_title"
             />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/price"
-            android:layout_below="@id/item_detail"
-            android:layout_toRightOf="@+id/item_image"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_below="@id/item_detail" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

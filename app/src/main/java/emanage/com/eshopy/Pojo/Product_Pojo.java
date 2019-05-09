@@ -4,12 +4,13 @@ public class Product_Pojo {
 	String title;
 	String detils;
 	String price;
-	int Image;
+	String Image;
 
 	public Product_Pojo() {
+
 	}
 
-	public Product_Pojo(String title, String detils, String price, int image) {
+	public Product_Pojo(String title, String detils, String price, String image) {
 		this.title = title;
 		this.detils = detils;
 		this.price=price;
@@ -32,11 +33,11 @@ public class Product_Pojo {
 		this.detils = detils;
 	}
 
-	public int getImage() {
+	public String getImage() {
 		return Image;
 	}
 
-	public void setImage(int image) {
+	public void setImage(String image) {
 		Image = image;
 	}
 
