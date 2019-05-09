@@ -5,11 +5,8 @@ public class Product_Pojo {
 	String detils;
 	String price;
 	String Image;
-
 	public Product_Pojo() {
-
 	}
-
 	public Product_Pojo(String title, String detils, String price, String image) {
 		this.title = title;
 		this.detils = detils;

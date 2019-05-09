@@ -14,12 +14,18 @@
         android:layout_width="fill_parent"
         android:layout_height="220dp"
         />
+
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    <ImageView
+        android:layout_below="@id/fliper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/showimage"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -28,13 +34,13 @@
         android:layout_marginTop="10dp"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/title"
-        android:layout_below="@id/fliper"/>
+        android:id="@+id/showtitle"
+        android:layout_below="@id/showimage"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/showtitle"
         android:textSize="20sp"
         android:text="Detail"
         android:id="@+id/detail"

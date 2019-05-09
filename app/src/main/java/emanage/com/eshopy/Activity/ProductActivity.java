@@ -1,5 +1,6 @@
 package emanage.com.eshopy.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,8 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -16,6 +19,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -25,12 +29,30 @@ public class ProductActivity extends AppCompatActivity implements BaseSliderView
 	RecyclerView recyclerView;
 	SliderLayout sliderLayout;
 	HashMap<String,String> Hash_file_maps ;
+	TextView title,detail;
+	ImageView image;
 	Button cart,buy;
+	String image_url="http://10.0.0.116/adminPanel/images/";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product);
+		Intent intent = getIntent();
+		title=(TextView)findViewById(R.id.showtitle) ;
+		image=(ImageView)findViewById(R.id.showimage);
+		detail=(TextView)findViewById(R.id.detail);
+
+		String title1 = intent.getStringExtra("title");
+		String detail1=intent.getStringExtra("detail");
+		String image1=intent.getStringExtra("image");
+		System.out.println("title="+title1);
+
+		title.setText(title1);
+		detail.setText(detail1);
+
+		Picasso.with(getApplication()).load(image_url+image1).into(image);
+
 		getSupportActionBar().hide();
 		Hash_file_maps = new HashMap<String, String>();
 		sliderLayout = (SliderLayout)findViewById(R.id.slider1);

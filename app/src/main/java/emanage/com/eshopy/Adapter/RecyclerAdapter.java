@@ -3,6 +3,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 		public TextView itemTitle;
 		public TextView itemDetail;
 		public  TextView price;
+		CardView cardView;
 
 
 		public ViewHolder(View itemView) {
@@ -40,23 +42,25 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 			itemTitle = (TextView)itemView.findViewById(R.id.item_title);
 			itemDetail = (TextView)itemView.findViewById(R.id.item_detail);
 			price=(TextView)itemView.findViewById(R.id.price);
+			cardView=(CardView)itemView.findViewById(R.id.card_view);
 //			Picasso.with(mCtx)
 //					.load("http://10.0.0.116/adminPanel/images/")
 //					// optional
 //					.resize(400,400)                        // optional
 //					.into(itemImage);
 
-			itemView.setOnClickListener(new View.OnClickListener() {
-				@Override public void onClick(View v) {
-					int position = getAdapterPosition();
-					//Intent intent=new Intent(mCtx,Registration.class);
-					v.getContext().startActivity(new Intent(v.getContext(), ProductActivity.class));
-					Snackbar.make(v, "Click detected on item " + position,
-							Snackbar.LENGTH_LONG)
-							.setAction("Action", null).show();
-
-				}
-			});
+//			itemView.setOnClickListener(new View.OnClickListener() {
+//				@Override public void onClick(View v) {
+//					int position = getAdapterPosition();
+//					//Intent intent=new Intent(mCtx,Registration.class);
+//					Intent intent=new Intent(mCtx,ProductActivity.class);
+//					v.getContext().startActivity(new Intent(v.getContext(), ProductActivity.class));
+//					Snackbar.make(v, "Click detected on item " + position,
+//							Snackbar.LENGTH_LONG)
+//							.setAction("Action", null).show();
+//
+//				}
+//			});
 		}
 	}
 	@Override
@@ -69,10 +73,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 	@Override
 	public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-		Product_Pojo pojo=productList.get(i);
+		final Product_Pojo pojo=productList.get(i);
 		viewHolder.itemTitle.setText(pojo.getTitle());
 		viewHolder.itemDetail.setText(pojo.getDetils());
 		Picasso.with(mCtx).load(image_url+pojo.getImage()).into(viewHolder.itemImage);
+		viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(mCtx, ProductActivity.class);
+				intent.putExtra("title",pojo.getTitle());
+				intent.putExtra("detail",pojo.getDetils());
+				intent.putExtra("image",pojo.getImage());
+				mCtx.startActivity(intent);
+			}
+		});
 
 		//viewHolder.itemImage.setImageDrawable(mCtx.getResources().getDrawable(pojo.getImage()));
 
